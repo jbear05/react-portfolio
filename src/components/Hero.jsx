@@ -40,16 +40,14 @@ export const Hero = () => {
             variants={fadeInUp}
             whileHover={{ scale: 1.02 }}
           >
-            PedroTech
+            Jair Garcia Fonseca
           </motion.h1>
           <motion.h2 className="hero-subtitle" variants={fadeInUp}>
             {" "}
-            Creative Developer & Designer
+            Software Engineer
           </motion.h2>
           <motion.p className="hero-description" variants={fadeInUp}>
-            I craft beautiful digital experiences that combine stunning design
-            with powerful functionality. Specializing in modern web applications
-            and interactive user interfaces.
+            My name is Jair Garcia Fonseca, and I am a Computer Science student passionate about software development and technology. I’m currently pursuing my Bachelor's degree at the University of Central Florida and have gained hands-on experience in programming languages like Python, Java, C, Javascript, and HTML/CSS. Through my projects, such as building an Employee Scheduling app using SpringBoot Java and React JavaScript, I’ve strengthened my technical and problem-solving skills. I’m also actively involved in communities like CodePath and KnightHacks, where I collaborate with others to grow my knowledge and contribute to meaningful projects.
           </motion.p>
 
           <motion.div className="cta-buttons" variants={staggerContainer}>
@@ -63,7 +61,7 @@ export const Hero = () => {
               View My Work
             </motion.a>
             <motion.a
-              href="#contacts"
+              href="#contact"
               className="cta-secondary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -72,14 +70,11 @@ export const Hero = () => {
             </motion.a>
           </motion.div>
           <motion.div className="social-links" variants={staggerContainer}>
-            <motion.a href="https://github.com" target="_blank">
+            <motion.a href="https://github.com/jbear05" target="_blank">
               <i className="fab fa-github"> </i>
             </motion.a>
-            <motion.a href="https://linkedin.com" target="_blank">
+            <motion.a href="https://www.linkedin.com/in/jair-garcia-fonseca/" target="_blank">
               <i className="fab fa-linkedin"> </i>
-            </motion.a>
-            <motion.a href="https://twitter.com" target="_blank">
-              <i className="fab fa-twitter"> </i>
             </motion.a>
           </motion.div>
         </motion.div>
@@ -92,7 +87,7 @@ export const Hero = () => {
         >
           <div className="code-display">
             <SyntaxHighlighter
-              language="typescript"
+              language="python"
               customStyle={{
                 margin: 0,
                 padding: "2rem",
@@ -104,24 +99,21 @@ export const Hero = () => {
               }}
               style={vscDarkPlus}
             >
-              {`const aboutMe: DeveloperProfile = {
-  codename: "PedroTech",
-  origin: "🌍 Somewhere between a coffee shop and a terminal",
-  role: "Fullstack Web Sorcerer",
-  stack: {
-    languages: ["JavaScript", "TypeScript", "SQL"],
-    frameworks: ["React", "Next.js", "TailwindCSS", "Supabase"],
-  },
-  traits: [
-    "pixel-perfectionist",
+              {`class DeveloperProfile:
+  codename = "JairGarciaFonseca"
+  origin = "🏝️ Cuba"
+  role = "Software Engineer"
+  stack = {
+    "languages" : ["Python", "Java", "JavaScript", "C", "HTML", "CSS"],
+    "frameworks" : ["SpringBoot", "React"]
+  }
+  traits = [
+    "hardworking problem solver",
     "API whisperer",
     "dark mode advocate",
-    "terminal aesthetic enthusiast",
-  ],
-  missionStatement:
-    "Turning ideas into interfaces and bugs into feature",
-  availability: "Available for hire",
-};`}
+    "lifelong learner"
+  ]
+  `}
             </SyntaxHighlighter>
           </div>
 

@@ -30,7 +30,7 @@ function App() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p> &copy; 2025 PedroTech. All rights reserved.</p>
+        <p> &copy; 2025 JairGarciaFonseca. All rights reserved.</p>
       </motion.footer>
     </div>
   );

@@ -39,77 +39,62 @@ export const Projects = () => {
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <motion.div
+        <motion.a
+          href = "https://github.com/jbear05/EmployeeSchedulingSystem"
+          target="_blank"
+          rel="noopener noreferrer"
           className="project-card"
           variants={fadeInUp}
           whileHover={{ y: -10, transition: { duration: 0.2 } }}
-        >
-          <motion.div
-            className="project-image"
-            style={{ backgroundImage: "url('/projects/ai-saas.png')" }}
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-          />
-          <h3> AI SaaS Platform</h3>
-          <p>
-            A modern SaaS platform built with Next.js and OpenAI integration,
-            featuring real-time AI-powered content generation and analytics.
-          </p>
-          <div className="project-tech">
-            <span>Next.js</span>
-            <span>OpenAI</span>
-            <span>TailwindCSS</span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="project-card"
-          variants={fadeInUp}
-          whileHover={{ y: -10, transition: { duration: 0.2 } }}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+          
         >
           <motion.div
             className="project-image"
             style={{
-              backgroundImage: "url('/projects/social-media.png')",
+              backgroundImage: "url('/projects/employee-scheduling-sys.png')",
             }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           />
-          <h3>Social Media Dashboard</h3>
+          <h3>Employee Scheduling System</h3>
           <p>
-            A comprehensive social media management dashboard with analytics,
-            scheduling, and engagement tracking features.
+            A full-stack web application for managing employees, shifts, and assignments. Built with Spring Boot and React.
           </p>
           <div className="project-tech">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
+            <span>React js</span>
+            <span>SpringBoot Java</span>
+            <span>H2/PostgreSQL Database</span>
           </div>
-        </motion.div>
+        </motion.a>
 
-        <motion.div
+        <motion.a
+          href = "https://github.com/jbear05/PokeLeveling"
+          target="_blank"
+          rel="noopener noreferrer"
           className="project-card"
           variants={fadeInUp}
           whileHover={{ y: -10, transition: { duration: 0.2 } }}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+          
         >
           <motion.div
             className="project-image"
             style={{
-              backgroundImage: "url('/projects/stopwatch.png')",
+              backgroundImage: "url('/projects/poke-leveling.png')",
             }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           />
-          <h3>Productivity Timer</h3>
+          <h3>PokeLeveling</h3>
           <p>
-            A sleek productivity timer application with customizable work
-            sessions, statistics tracking, and dark mode support.
+            Pokemon game. Random map generates different areas for a new experience every playthrough/level. Catch them all and face the legendary pokemon!
           </p>
           <div className="project-tech">
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>TailwindCSS</span>
+            <span>Python</span>
+            <span>Pygame</span>
           </div>
-        </motion.div>
+        </motion.a>
       </motion.div>
     </motion.section>
   );
