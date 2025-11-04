@@ -110,7 +110,7 @@ export const Hero = () => {
   traits = [
     "hardworking problem solver",
     "API whisperer",
-    "dark mode advocate",
+    "team player",
     "lifelong learner"
   ]
   `}
