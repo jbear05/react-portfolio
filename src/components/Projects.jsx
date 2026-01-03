@@ -40,6 +40,39 @@ export const Projects = () => {
         viewport={{ once: true }}
       >
         <motion.a
+          href = "https://github.com/jbear05/ai-predictive-maintenance"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-card"
+          variants={fadeInUp}
+          whileHover={{ y: -10, transition: { duration: 0.2 } }}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+          
+        >
+          <motion.div
+            className="project-image"
+            style={{
+              backgroundImage: "url('/projects/ai-predictive-maintenance.png')",
+            }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          />
+          <h3>AI Predictive Maintenance</h3>
+          <p>
+            Machine learning model to predict equipment failures 36-48 cycles in advance + StreamLit dashboard to visualize predictions.
+          </p>
+          <div className="project-tech">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>Pandas</span>
+            <span>Scikit-Learn</span>
+            <span>StreamLit</span>
+            <span>Matplotlib</span>
+            <span>XGBoost</span>
+          </div>
+        </motion.a>
+
+        <motion.a
           href = "https://github.com/jbear05/EmployeeSchedulingSystem"
           target="_blank"
           rel="noopener noreferrer"
