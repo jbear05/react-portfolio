@@ -1,0 +1,197 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 112px);
+  align-items: start;
+}
+
+.about__bio {
+  display: grid;
+  gap: 20px;
+  max-width: 62ch;
+  color: var(--ink-2);
+  font-size: 1.125rem;
+}
+
+.about__lead {
+  font-size: clamp(1.3125rem, 2vw, 1.625rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* Portrait plate */
+
+.portrait {
+  position: relative;
+  max-width: 300px;
+  padding: 10px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+}
+
+.portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08) brightness(1.02);
+  transition: filter 0.5s ease;
+}
+
+.portrait:hover img {
+  filter: none;
+}
+
+.portrait figcaption {
+  padding-top: 10px;
+  color: var(--ink-3);
+}
+
+/* Spec sheet with dotted leaders */
+
+.spec {
+  margin-top: 28px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.spec__row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec__row dt {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--ink-3);
+}
+
+.spec__row dt::after {
+  content: "";
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 1px dotted var(--line-strong);
+  transform: translateY(-3px);
+}
+
+.spec__row dd {
+  max-width: 64%;
+  font-weight: 500;
+  text-align: right;
+}
+
+.about__courses-title {
+  margin: 24px 0 12px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 859px) {
+  .about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about__side {
+    display: grid;
+    grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .spec {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 559px) {
+  .about__side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portrait {
+    max-width: 240px;
+  }
+}
+
+/* Bill of materials */
+
+.bom {
+  margin-top: clamp(72px, 10vw, 128px);
+}
+
+.bom__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 32px;
+  margin-bottom: 24px;
+}
+
+.bom__title {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: -0.03em;
+}
+
+.bom__intro {
+  max-width: 44ch;
+  color: var(--ink-2);
+}
+
+.bom__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+}
+
+.bom__group {
+  padding: 20px 20px 24px;
+  background: color-mix(in srgb, var(--bg-raised) 70%, transparent);
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.bom__group-title {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.bom__group-title span {
+  color: var(--signal-ink);
+}
+
+.bom__group li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: baseline;
+  padding: 5px 0;
+  font-weight: 500;
+}
+
+.bom__group li .mono {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+}
+
+@media (max-width: 859px) {
+  .bom__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 479px) {
+  .bom__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
