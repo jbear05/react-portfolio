@@ -1,0 +1,68 @@
+/*
+  Two themes, one drawing set:
+  - light: drafting paper, ink and a blue construction grid
+  - dark:  blueprint
+  The signal orange is the only accent that means "live" or "look here".
+*/
+
+:root {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --bg: #f3f0e8;
+  --bg-raised: #f9f7f2;
+  --bg-sunken: #ebe7dc;
+  --ink: #121418;
+  --ink-2: #454a55;
+  --ink-3: #636874;
+  --line: rgba(18, 20, 24, 0.14);
+  --line-strong: rgba(18, 20, 24, 0.5);
+  --grid-minor: rgba(36, 76, 214, 0.045);
+  --grid-major: rgba(36, 76, 214, 0.085);
+  --blue: #2346d8;
+  --blue-soft: rgba(35, 70, 216, 0.09);
+  --signal: #ff5a1f;
+  --signal-ink: #c2410c;
+  --signal-soft: rgba(255, 90, 31, 0.12);
+  --on-signal: #121418;
+  --selection: #ffd3bf;
+  --shadow: 0 1px 0 rgba(18, 20, 24, 0.04), 0 18px 40px -24px rgba(18, 20, 24, 0.28);
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1240px;
+  --nav-h: 64px;
+  --frame: 0px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a1224;
+  --bg-raised: #0f1a31;
+  --bg-sunken: #081020;
+  --ink: #e8edf7;
+  --ink-2: #b3bdd2;
+  --ink-3: #8691aa;
+  --line: rgba(173, 196, 255, 0.15);
+  --line-strong: rgba(214, 226, 255, 0.5);
+  --grid-minor: rgba(143, 179, 255, 0.045);
+  --grid-major: rgba(143, 179, 255, 0.085);
+  --blue: #8fb3ff;
+  --blue-soft: rgba(143, 179, 255, 0.1);
+  --signal: #ff6a2b;
+  --signal-ink: #ff8a57;
+  --signal-soft: rgba(255, 106, 43, 0.14);
+  --on-signal: #0a1224;
+  --selection: #7a2e10;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 18px 40px -24px rgba(0, 0, 0, 0.6);
+
+  color-scheme: dark;
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --frame: 14px;
+    --nav-h: 68px;
+  }
+}

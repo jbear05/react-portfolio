@@ -1,137 +1,144 @@
-import { motion } from "framer-motion";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { m } from "framer-motion";
+import { REVISION } from "../data/build";
+import { profile } from "../data/profile";
+import { useClock } from "../hooks/useClock";
+import { ArrowDown, ArrowRight, GitHub, LinkedIn } from "./Icons";
+import { WorkGraph } from "./WorkGraph";
+import "./Hero.css";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
+const ease = [0.22, 1, 0.36, 1];
+const rise = {
+  hidden: { y: "108%" },
+  visible: { y: "0%", transition: { duration: 1.05, ease } },
+};
+const fade = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
 };
 
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
+export const Hero = ({ theme }) => {
+  const time = useClock(profile.timeZone);
+  const city = profile.location.split(",")[0];
 
-export const Hero = () => {
   return (
-    <motion.section
-      id="home"
-      className="hero"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-    >
-      <div className="hero-container">
-        <motion.div
-          className="hero-content"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.div className="hero-badge">
-            <span> 👋 Hello, I'm </span>
-          </motion.div>
-          <motion.h1
-            className="glitch"
-            variants={fadeInUp}
-            whileHover={{ scale: 1.02 }}
-          >
-            Jair Garcia Fonseca
-          </motion.h1>
-          <motion.h2 className="hero-subtitle" variants={fadeInUp}>
-            {" "}
-            Software Engineer
-          </motion.h2>
-          <motion.p className="hero-description" variants={fadeInUp}>
-            My name is Jair Garcia Fonseca, and I am a Computer Science student passionate about software development and technology. I’m currently pursuing my Bachelor's degree at the University of Central Florida and have gained hands-on experience in programming languages like Python, Java, C, Javascript, and HTML/CSS. Through my projects, such as building an Employee Scheduling app using SpringBoot Java and React JavaScript, I’ve strengthened my technical and problem-solving skills. I’m also actively involved in communities like CodePath and KnightHacks, where I collaborate with others to grow my knowledge and contribute to meaningful projects.
-          </motion.p>
+    <section id="top" className="hero" aria-labelledby="hero-title">
+      <WorkGraph theme={theme} className="hero__canvas" />
 
-          <motion.div className="cta-buttons" variants={staggerContainer}>
-            <motion.a
-              href="#projects"
-              className="cta-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {" "}
-              View My Work
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="cta-secondary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Me
-            </motion.a>
-          </motion.div>
-          <motion.div className="social-links" variants={staggerContainer}>
-            <motion.a href="https://github.com/jbear05" target="_blank">
-              <i className="fab fa-github"> </i>
-            </motion.a>
-            <motion.a href="https://www.linkedin.com/in/jair-garcia-fonseca/" target="_blank">
-              <i className="fab fa-linkedin"> </i>
-            </motion.a>
-          </motion.div>
-        </motion.div>
+      <m.div
+        className="hero__inner container"
+        initial="hidden"
+        animate="visible"
+        transition={{ staggerChildren: 0.1, delayChildren: 0.15 }}
+      >
+        <m.dl className="hero__meta mono" variants={fade}>
+          <div>
+            <dt>Sheet</dt>
+            <dd>00 / Index</dd>
+          </div>
+          <div>
+            <dt>Rev</dt>
+            <dd>{REVISION}</dd>
+          </div>
+          <div className="hero__meta-coords">
+            <dt className="visually-hidden">Coordinates</dt>
+            <dd>{profile.coords}</dd>
+          </div>
+          <div>
+            <dt>{city}</dt>
+            <dd>{time}</dd>
+          </div>
+        </m.dl>
 
-        <motion.div
-          className="hero-image-container"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="code-display">
-            <SyntaxHighlighter
-              language="python"
-              customStyle={{
-                margin: 0,
-                padding: "2rem",
-                height: "100%",
-                borderRadius: "20px",
-                background: "rgba(30, 41, 59, 0.8)",
-                backdropFilter: "blur(10px)",
-                marginBottom: 50,
-              }}
-              style={vscDarkPlus}
-            >
-              {`class DeveloperProfile:
-  codename = "JairGarciaFonseca"
-  origin = "🏝️ Cuba"
-  role = "Software Engineer"
-  stack = {
-    "languages" : ["Python", "Java", "JavaScript", "C", "HTML", "CSS"],
-    "frameworks" : ["SpringBoot", "React"]
-  }
-  traits = [
-    "hardworking problem solver",
-    "API whisperer",
-    "team player",
-    "lifelong learner"
-  ]
-  `}
-            </SyntaxHighlighter>
+        <div className="hero__body">
+          <div className="hero__text">
+            <m.p className="hero__status mono" variants={fade}>
+              <span className="pulse-dot" aria-hidden="true" />
+              {profile.status}
+            </m.p>
+
+            <h1 className="hero__name" id="hero-title">
+              <span className="hero__line">
+                <m.span variants={rise}>Jair</m.span>
+              </span>{" "}
+              <span className="hero__line">
+                <m.span variants={rise}>Garcia</m.span>
+              </span>{" "}
+              <span className="hero__line">
+                <m.span variants={rise}>Fonseca</m.span>
+              </span>
+            </h1>
+
+            <m.p className="hero__lede" variants={fade}>
+              <strong>Software engineer and CS student at UCF.</strong> Three
+              internships in, I build software that turns messy, real-world
+              data into decisions, from predicting jet-engine failures to tying
+              a law firm’s ad spend to real clients.
+            </m.p>
+
+            <m.div className="hero__actions" variants={fade}>
+              <a className="btn btn--primary" href="#experience">
+                See my work <ArrowDown />
+              </a>
+              <a className="btn" href="#contact">
+                Get in touch <ArrowRight />
+              </a>
+              <div className="hero__social">
+                <a
+                  className="icon-btn"
+                  href={profile.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub (opens in a new tab)"
+                  title="GitHub"
+                >
+                  <GitHub />
+                </a>
+                <a
+                  className="icon-btn"
+                  href={profile.links.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn (opens in a new tab)"
+                  title="LinkedIn"
+                >
+                  <LinkedIn />
+                </a>
+              </div>
+            </m.div>
           </div>
 
-          <motion.div
-            className="floating-card"
-            animate={{ y: [0, -10, 0], rotate: [0, 2, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="card-content">
-              <span className="card-icon"> 💻 </span>
-              <span className="card-text">
-                {" "}
-                Currently working on something awesome!
-              </span>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.section>
+          {/* Open space the work graph measures and draws into. */}
+          <div className="hero__graph-space" aria-hidden="true" />
+        </div>
+
+        <m.div className="hero__foot" variants={fade}>
+          <a className="hero__latest" href={profile.now.href}>
+            <span className="mono hero__latest-tag">Now</span>
+            <span className="hero__latest-label">{profile.now.label}</span>
+            <ArrowRight />
+          </a>
+
+          <div className="hero__legend mono">
+            <p className="hero__legend-title">Fig. 01 — Work graph</p>
+            <ul className="hero__keys">
+              <li>
+                <i className="key key--role" aria-hidden="true" />
+                Role
+              </li>
+              <li>
+                <i className="key key--project" aria-hidden="true" />
+                Project
+              </li>
+              <li>
+                <i className="key key--tool" aria-hidden="true" />
+                Tool
+              </li>
+            </ul>
+            <p className="hero__hint hero__hint--mouse">Hover a node to trace it</p>
+            <p className="hero__hint hero__hint--touch">Tap a node to trace it</p>
+          </div>
+        </m.div>
+      </m.div>
+    </section>
   );
 };

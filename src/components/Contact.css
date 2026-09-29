@@ -1,0 +1,191 @@
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(40px, 7vw, 104px);
+  align-items: start;
+}
+
+.contact__label {
+  padding-bottom: 12px;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.contact__links a {
+  display: grid;
+  grid-template-columns: 28px auto 1fr 20px;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 4px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: padding 0.3s var(--ease-out);
+}
+
+.contact__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.contact__link-label {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800;
+  font-stretch: 110%;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.contact__handle {
+  justify-self: end;
+  color: var(--ink-3);
+  text-transform: none;
+}
+
+.contact__arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--ink-3);
+  transition:
+    transform 0.25s var(--ease-out),
+    color 0.2s ease;
+}
+
+.contact__links a:hover {
+  padding-left: 12px;
+}
+
+.contact__links a:hover .contact__arrow {
+  color: var(--signal-ink);
+  transform: translate(2px, -2px);
+}
+
+.contact__local {
+  margin-top: 20px;
+  color: var(--ink-3);
+}
+
+/* Form */
+
+.contact__form {
+  position: relative;
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.contact__form-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.contact__form-bar span:first-child {
+  color: var(--signal-ink);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.2s ease;
+}
+
+.field label {
+  color: var(--ink-3);
+  transition: color 0.2s ease;
+}
+
+.field label span {
+  margin-right: 6px;
+  color: var(--signal-ink);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 6px 0;
+  font-size: 1.125rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-3);
+  opacity: 0.7;
+}
+
+.field textarea {
+  min-height: 132px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field:focus-within {
+  background: var(--blue-soft);
+}
+
+.field:focus-within label {
+  color: var(--ink);
+}
+
+.contact__trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.contact__actions .btn:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.contact__status {
+  flex: 1 1 220px;
+  font-size: 0.9375rem;
+}
+
+.contact__status--sent {
+  color: var(--ink);
+}
+
+.contact__status--sent::before {
+  content: "✓ ";
+  color: var(--signal-ink);
+  font-weight: 700;
+}
+
+.contact__status--error {
+  color: var(--signal-ink);
+}
+
+@media (max-width: 859px) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .contact__links a {
+    grid-template-columns: 24px 1fr 18px;
+  }
+
+  .contact__handle {
+    display: none;
+  }
+}

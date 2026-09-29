@@ -1,38 +1,35 @@
-import "./App.css";
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { Projects } from "./components/Projects";
+import { LazyMotion, MotionConfig, domAnimation } from "framer-motion";
+import { useTheme } from "./hooks/useTheme";
+import { About } from "./components/About";
 import { Contact } from "./components/Contact";
-import { useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import { Experience } from "./components/Experience";
+import { Footer } from "./components/Footer";
+import { Frame } from "./components/Frame";
+import { Hero } from "./components/Hero";
+import { Navbar } from "./components/Navbar";
+import { Work } from "./components/Work";
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-  }, []);
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`app ${isLoaded ? "loaded" : ""}`}>
-      <Navbar />
-
-      <Hero />
-      <Projects />
-      <Contact />
-
-      <motion.footer
-        className="footer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <p> &copy; 2025 JairGarciaFonseca. All rights reserved.</p>
-      </motion.footer>
-    </div>
+    <LazyMotion features={domAnimation} strict>
+      <MotionConfig reducedMotion="user">
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <Frame />
+        <Navbar theme={theme} onToggleTheme={toggleTheme} />
+        <main id="main">
+          <Hero theme={theme} />
+          <Experience />
+          <Work />
+          <About />
+          <Contact />
+        </main>
+        <Footer />
+      </MotionConfig>
+    </LazyMotion>
   );
 }
 

@@ -1,0 +1,324 @@
+/* ---------- Plate ---------- */
+
+.figure {
+  position: relative;
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+}
+
+.figure__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 6px 8px 6px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.figure__num {
+  color: var(--signal-ink);
+}
+
+.figure__kind {
+  padding-right: 6px;
+  color: var(--ink-3);
+}
+
+.figure__tabs {
+  display: flex;
+}
+
+.figure__tab {
+  padding: 6px 10px;
+  color: var(--ink-3);
+  background: transparent;
+  border: 1px solid var(--line);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.figure__tab + .figure__tab {
+  border-left: 0;
+}
+
+.figure__tab:hover {
+  color: var(--ink);
+}
+
+.figure__tab[aria-selected="true"] {
+  color: var(--bg);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.figure__body {
+  position: relative;
+  aspect-ratio: 560 / 420;
+  background-color: var(--bg-raised);
+  background-image:
+    linear-gradient(to right, var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-minor) 1px, transparent 1px);
+  background-size: 14px 14px;
+  overflow: hidden;
+}
+
+.figure__body img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+.figure__scroll {
+  height: 100%;
+}
+
+.figure__scroll .fig {
+  width: 100%;
+  height: 100%;
+}
+
+/* Below this width the drawings get too small to read, so they pan instead. */
+@media (max-width: 559px) {
+  .figure__body--schematic {
+    aspect-ratio: auto;
+  }
+
+  .figure__scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .figure__scroll .fig {
+    width: 500px;
+    max-width: none;
+    height: auto;
+  }
+}
+
+.figure__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 14px;
+  color: var(--ink-3);
+  border-top: 1px solid var(--line);
+}
+
+.figure__hint {
+  display: none;
+  color: var(--signal-ink);
+}
+
+@media (max-width: 559px) {
+  .figure__hint {
+    display: inline;
+  }
+}
+
+/* ---------- Drawing classes ---------- */
+
+.fig {
+  font-family: var(--font-mono);
+  overflow: visible;
+}
+
+.fig text {
+  fill: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.fig .t-muted {
+  fill: var(--ink-3);
+}
+
+.fig .t-blue {
+  fill: var(--blue);
+}
+
+.fig .t-signal {
+  fill: var(--signal-ink);
+}
+
+.fig .t-small {
+  font-size: 9.5px;
+}
+
+.fig .t-title {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.fig .t-big {
+  font-family: var(--font-sans);
+  font-size: 25px;
+  font-weight: 800;
+  font-stretch: 110%;
+  letter-spacing: -0.02em;
+}
+
+.fig .t-halo {
+  paint-order: stroke;
+  stroke: var(--bg-raised);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.fig .stroke {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.25;
+}
+
+.fig .stroke-thin {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+  opacity: 0.35;
+}
+
+.fig .stroke-muted {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.fig .stroke-blue {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.25;
+}
+
+.fig .stroke-signal {
+  fill: none;
+  stroke: var(--signal);
+  stroke-width: 1.5;
+}
+
+.fig .dashed {
+  stroke-dasharray: 4 4;
+}
+
+.fig .dotted {
+  stroke-dasharray: 1.5 3.5;
+}
+
+.fig .fill-raised {
+  fill: var(--bg-raised);
+}
+
+.fig .fill-bg {
+  fill: var(--bg);
+}
+
+.fig .fill-ink {
+  fill: var(--ink);
+}
+
+.fig .fill-blue {
+  fill: var(--blue);
+}
+
+.fig .fill-blue-soft {
+  fill: var(--blue-soft);
+}
+
+.fig .fill-signal {
+  fill: var(--signal);
+}
+
+.fig .fill-signal-soft {
+  fill: var(--signal-soft);
+}
+
+.fig .fill-line {
+  fill: var(--line);
+}
+
+.fig .fill-muted {
+  fill: var(--ink-3);
+}
+
+.fig .dim {
+  opacity: 0.45;
+}
+
+/* ---------- Motion ----------
+   .is-inview: the plate has been seen (one-time draw-in transitions).
+   .is-playing: the plate is on screen right now (looping animations). */
+
+.fig .flow {
+  stroke-dasharray: 3 5;
+  animation: fig-flow 0.9s linear infinite;
+  animation-play-state: paused;
+}
+
+.figure.is-playing .fig .flow {
+  animation-play-state: running;
+}
+
+@keyframes fig-flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+.fig .draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.figure.is-inview .fig .draw {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2.4s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+}
+
+.fig .appear {
+  opacity: 0;
+}
+
+.figure.is-inview .fig .appear {
+  opacity: 1;
+  transition: opacity 0.6s ease var(--delay, 0.4s);
+}
+
+.fig .blink {
+  animation: fig-blink 2s steps(1) infinite;
+  animation-play-state: paused;
+}
+
+.figure.is-playing .fig .blink {
+  animation-play-state: running;
+}
+
+@keyframes fig-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fig .flow,
+  .fig .blink {
+    animation: none;
+  }
+
+  .fig .draw,
+  .figure.is-inview .fig .draw {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  .fig .appear,
+  .figure.is-inview .fig .appear {
+    opacity: 1;
+    transition: none;
+  }
+}
