@@ -11,6 +11,7 @@ export const graph = [
     tools: ["Next.js", "TypeScript", "Vercel", "FileMaker Pro", "Google Ads"],
   },
   { label: "This site", kind: "project", tools: ["React", "JavaScript", "Vercel"] },
+  { label: "Watchdog", kind: "project", tools: ["TypeScript", "Next.js", "React", "Tailwind CSS"] },
   { label: "Forma", kind: "project", tools: ["TypeScript", "Node.js", "PostgreSQL", "Redis"] },
   { label: "KnightMarket", kind: "project", tools: ["Flutter", "Node.js", "MongoDB"] },
   { label: "Job Notifier", kind: "project", tools: ["JavaScript", "Claude API", "Chrome Extension"] },
@@ -46,5 +47,6 @@ export const tour = [
   "Job Notifier",
   "Employee Scheduling",
   "Gridlock",
+  "Watchdog",
   "Forma",
 ];

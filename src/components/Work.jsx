@@ -12,7 +12,7 @@ export const Work = () => (
         label="Selected projects"
         id="work-title"
         title="Things I've built, and how they work."
-        intro="Four projects I'm proud of, from an internship, a hackathon and my own time. Each sheet covers the problem, what I built, what came out the other end and a schematic of how the pieces fit together."
+        intro="Five projects I'm proud of, from an internship, two hackathons and my own time. Each sheet covers the problem, what I built, what came out the other end and a schematic of how the pieces fit together."
       />
 
       <div className="work__sheets">
