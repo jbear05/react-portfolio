@@ -58,6 +58,47 @@ export const featured = [
     figureCaption: "From a confirmation page to drafted messages",
   },
   {
+    id: "watchdog",
+    title: "Watchdog",
+    tagline: "Shows what an inspection robot actually found, not just that it finished.",
+    context: "KnightHacks 2026 · NextEra Energy challenge",
+    role: "Team of 4 · Design & frontend",
+    date: "Oct 2026",
+    summary:
+      "Power plants send Boston Dynamics' SPOT on walking routes to read gauges, listen to equipment and take photos. When a route ends, the robot reports one word: completed. In NextEra's data, half of those completed routes still had failed steps or serious findings. Watchdog reads everything the robot recorded and tells the person on duty what needs a decision first.",
+    built: [
+      "The visual system in Figma, a cartoon garden where a passed step blooms into a flower and a failed one turns to blight, carried into Tailwind tokens and a set of shared components.",
+      "A Live screen that replays any of the 27 missions on the plant map from one clock, so the map, side panel and replay bar never disagree, with what-ifs like a heat wave or a blocked charging dock.",
+      "A mission report that ranks findings by severity and equipment criticality, with dispatch, watch and dismiss decisions, and an in-browser AI summary that is thrown out if it mentions a number not in the records.",
+    ],
+    metrics: [
+      { value: "13", label: "“completed” routes hiding problems" },
+      { value: "27", label: "missions replayed on the map" },
+      { value: "5", label: "screens designed and built" },
+    ],
+    stack: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Figma",
+      "Transformers.js",
+      "Vitest",
+      "Express",
+      "PostgreSQL",
+    ],
+    links: [
+      { label: "Live demo", href: "https://knight-hacks2026.vercel.app" },
+      { label: "Source", href: "https://github.com/jbear05/KnightHacks2026" },
+    ],
+    figure: "watchdog",
+    figureCaption: "One “completed” route, and what was hiding inside it",
+    screenshot: {
+      src: "/projects/watchdog.jpg",
+      alt: "Watchdog's Live screen replaying mission M014 on the plant's floor plan, with SPOT at step 5 of 10 and an attention queue listing two high-severity gauge findings and a failed walk.",
+    },
+  },
+  {
     id: "gridlock",
     title: "Gridlock",
     tagline:

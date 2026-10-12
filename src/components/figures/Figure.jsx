@@ -5,6 +5,7 @@ import { GridlockFigure } from "./GridlockFigure";
 import { MaintenanceFigure } from "./MaintenanceFigure";
 import { JobNotifierFigure } from "./JobNotifierFigure";
 import { SchedulingFigure } from "./SchedulingFigure";
+import { WatchdogFigure } from "./WatchdogFigure";
 import "./figures.css";
 
 const DIAGRAMS = {
@@ -12,6 +13,7 @@ const DIAGRAMS = {
   maintenance: MaintenanceFigure,
   jobNotifier: JobNotifierFigure,
   scheduling: SchedulingFigure,
+  watchdog: WatchdogFigure,
 };
 
 // A framed figure plate. Diagrams draw in the first time they scroll into

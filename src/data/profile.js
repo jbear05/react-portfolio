@@ -101,7 +101,7 @@ export const about = {
     { label: "Studying", value: "B.S. Computer Science, University of Central Florida" },
     { label: "Graduating", value: "July 2027" },
     { label: "Honors", value: "Dean's List · 3.72 GPA" },
-    { label: "Hackathons", value: "PlutoHacks 2024, ShellHacks 2026" },
+    { label: "Hackathons", value: "PlutoHacks 2024, ShellHacks 2026, KnightHacks 2026" },
     { label: "Speaks", value: "English, Español" },
   ],
   coursework: [
